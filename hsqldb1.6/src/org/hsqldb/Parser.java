@@ -524,7 +524,7 @@ class Parser {
 
 	// parse column list
 	Vector vcolumn = new Vector();
-
+    //获取字段
 	do {
 	    Expression e = parseExpression();
 
@@ -547,7 +547,7 @@ class Parser {
 	    select.sIntoTable = tTokenizer.getString();
 	    token = tTokenizer.getString();
 	}
-
+    //select 没from 抛出异常
 	if (!token.equals("FROM")) {
 	    throw Trace.error(Trace.UNEXPECTED_TOKEN, token);
 	}
@@ -556,13 +556,13 @@ class Parser {
 
 	// parse table list
 	Vector     vfilter = new Vector();
-
+    //表过滤器
 	vfilter.addElement(parseTableFilter(false));
 
 	while (true) {
 	    token = tTokenizer.getString();
 
-	    if (token.equals("LEFT")) {
+	    if (token.equals("LEFT")) {//只支持left join（=left outer join）,INNER join
 		token = tTokenizer.getString();
 
 		if (token.equals("OUTER")) {
@@ -573,7 +573,7 @@ class Parser {
 			    token);
 		vfilter.addElement(parseTableFilter(true));
 		tTokenizer.getThis("ON");
-
+        //on 之后的表达式 
 		condition = addCondition(condition, parseExpression());
 	    } else if (token.equals("INNER")) {
 		tTokenizer.getThis("JOIN");
@@ -603,7 +603,7 @@ class Parser {
 	for (int i = 0; i < len; i++) {
 	    Expression e = (Expression) (vcolumn.elementAt(i));
 
-	    if (e.getType() == Expression.ASTERIX) {
+	    if (e.getType() == Expression.ASTERIX) {//*字段，把表的所有字段都加上
 		int    current = i;
 		Table  table = null;
 		String n = e.getTableName();
@@ -611,7 +611,7 @@ class Parser {
 		for (int t = 0; t < filter.length; t++) {
 		    TableFilter f = filter[t];
 
-		    e.resolve(f);
+		    e.resolve(f);//把字段和表名关联
 
 		    if (n != null &&!n.equals(f.getName())) {
 			continue;
@@ -649,7 +649,7 @@ class Parser {
 		}
 	}
 
-	select.iResultLen = len;
+	select.iResultLen = len;//返回的字段数
 
 	// where
 	token = tTokenizer.getString();
@@ -746,13 +746,13 @@ class Parser {
 	    tTokenizer.getThis("SELECT");
 
 	    select.sUnion = parseSelect();
-	} else if (token.equals("INTERSECT")) {
+	} else if (token.equals("INTERSECT")) {//INTERSECT是指在两个集合中都存在的数据
 	    tTokenizer.getThis("SELECT");
 
 	    select.iUnionType = Select.INTERSECT;
 	    select.sUnion = parseSelect();
 	} else if (token.equals("EXCEPT") || token.equals("MINUS")) {
-	    tTokenizer.getThis("SELECT");
+	    tTokenizer.getThis("SELECT");//EXCEPT是指在第一个集合中存在，但是不存在于第二个集合中的数据
 
 	    select.iUnionType = Select.EXCEPT;
 	    select.sUnion = parseSelect();
@@ -778,7 +778,7 @@ class Parser {
 	String token = tTokenizer.getString();
 	Table  t = null;
 
-	if (token.equals("(")) {
+	if (token.equals("(")) {//select * from ( 语句的解析
 	    tTokenizer.getThis("SELECT");
 
 	    Select s = parseSelect();
