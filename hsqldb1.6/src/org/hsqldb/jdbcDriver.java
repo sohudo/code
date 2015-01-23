@@ -37,6 +37,7 @@ package org.hsqldb;
 
 import java.sql.*;
 import java.util.Properties;
+import java.util.logging.Logger;
 import java.io.*;
 
 /**
@@ -238,4 +239,9 @@ public class jdbcDriver implements Driver {
 	    }
 	}
     }
+
+	public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

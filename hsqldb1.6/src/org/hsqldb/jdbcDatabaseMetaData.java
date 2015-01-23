@@ -2967,4 +2967,150 @@ public class jdbcDatabaseMetaData implements DatabaseMetaData {
 	return b.toString();
     }
 
+	public Object unwrap(Class iface) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean isWrapperFor(Class iface) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean supportsSavepoints() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean supportsNamedParameters() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean supportsMultipleOpenResults() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean supportsGetGeneratedKeys() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public ResultSet getSuperTypes(String catalog, String schemaPattern,
+			String typeNamePattern) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultSet getSuperTables(String catalog, String schemaPattern,
+			String tableNamePattern) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultSet getAttributes(String catalog, String schemaPattern,
+			String typeNamePattern, String attributeNamePattern)
+			throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean supportsResultSetHoldability(int holdability)
+			throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getResultSetHoldability() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getDatabaseMajorVersion() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getDatabaseMinorVersion() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getJDBCMajorVersion() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getJDBCMinorVersion() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getSQLStateType() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean locatorsUpdateCopy() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean supportsStatementPooling() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public RowIdLifetime getRowIdLifetime() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultSet getSchemas(String catalog, String schemaPattern)
+			throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean supportsStoredFunctionsUsingCallSyntax() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean autoCommitFailureClosesAllResultSets() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public ResultSet getClientInfoProperties() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultSet getFunctions(String catalog, String schemaPattern,
+			String functionNamePattern) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultSet getFunctionColumns(String catalog, String schemaPattern,
+			String functionNamePattern, String columnNamePattern)
+			throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultSet getPseudoColumns(String catalog, String schemaPattern,
+			String tableNamePattern, String columnNamePattern)
+			throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean generatedKeyAlwaysReturned() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
