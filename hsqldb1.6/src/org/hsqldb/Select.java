@@ -85,7 +85,7 @@ class Select {
      * @throws SQLException
      */
     void resolve(TableFilter f, boolean ownfilter) throws SQLException {
-	if (eCondition != null) {
+	if (eCondition != null) {//join 的on 条件判断
 
 	    // first set the table filter in the condition
 	    eCondition.resolve(f);
